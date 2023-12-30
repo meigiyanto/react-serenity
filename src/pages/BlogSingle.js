@@ -77,7 +77,7 @@ function BlogSingle() {
 												<div className="comment-img">
 								  				<img src="../assets/img/blog/comments-1.jpg" alt="" />
 								  	 		</div>
-												<h5></h5>
+												<h5>Commentator</h5>
 												<time dateTime="2020-01-01"></time>
 												<p></p>
 											</div>

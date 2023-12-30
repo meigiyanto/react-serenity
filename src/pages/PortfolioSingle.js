@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import Breadcrumb from './../components/widget/Breadcrumb'
 import portfolios from './../data/portfolios';
@@ -49,7 +49,7 @@ function PortfolioSingle() {
 		              <li><strong>Category</strong>: {`${type[0].toUpperCase() + type.slice(1)}`} design</li>
 		              <li><strong>Client</strong>: ASU Company</li>
 		              <li><strong>Project date</strong>: 01 March, 2020</li>
-		              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+		              <li><strong>Project URL</strong>: <Link to="#">www.example.com</Link></li>
 		            </ul>
 		          </div>
 		          <div className="portfolio-description">

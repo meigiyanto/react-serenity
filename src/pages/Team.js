@@ -13,7 +13,7 @@ function Team() {
 			    <div className="row">
 					{
 						teams.map(team => (
-					      <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
+					      <div key={team.id} className="col-lg-4 col-md-6 d-flex align-items-stretch">
 					        <div className="member" data-aos="fade-up">
 					          <div className="member-img">
 					            <img src={team.image} className="img-fluid" alt="" />

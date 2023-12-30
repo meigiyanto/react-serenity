@@ -1,67 +1,7 @@
+import { Link } from 'react-router-dom';
 import Breadcrumb from './../components/widget/Breadcrumb';
-
-const listsprice = [
-	{
-		id: 1,
-		name: 'Free',
-		rate: 0,
-		feature: ['Aida dere', 'Nec feugiat nisl', 'Pharetra massa', 'Massa ultricies mi'],
-		featured: false,
-		advanced: false
-	},
-	{
-		id: 2,
-		name: 'Business',
-		rate: 19,
-		feature: ['Aida dere', 'Nec feugiat nisl', 'Pharetra massa', 'Massa ultricies mi'],
-		featured: true,
-		advanced: false
-	},
-	{
-		id: 3,
-		name: 'Developer',
-		rate: 29,
-		feature: ['Aida dere', 'Nec feugiat nisl', 'Pharetra massa', 'Massa ultricies mi'],
-		featured: false,
-		advanced: false
-	},
-	{
-		id: 4,
-		name: 'Ultimate',
-		rate: 49,
-		feature: ['Aida dere', 'Nec feugiat nisl', 'Pharetra massa', 'Massa ultricies mi'],
-		featured: false,
-		advanced: true
-	}
-]
-
-const faqs = [
-	{
-		id: 1,
-		question: 'Non consectetur a erat nam at lectus urna duis?',
-		answer: 'Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.',
-	},
-	{
-		id: 2,
-		question: 'Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?',
-		answer: 'Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissi',
-	},
-	{
-		id: 3,
-		question: 'Non consectetur a erat nam at lectus urna duis?',
-		answer: 'Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.',
-	},
-	{
-		id: 4,
-		question: 'Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?',
-		answer: 'Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.'
-	},
-	{
-		id: 5,
-		question: 'Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?',
-		answer: 'Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga.',
-	}
-]
+import prices from './../data/prices';
+import faqs from './../data/faqs';
 
 function SubPricing() {
 	return (
@@ -70,17 +10,17 @@ function SubPricing() {
 
 	      <div className="row">
 
-					{listsprice.map(lp => (
-	        <div key={lp.id} className="col-lg-3 col-md-6">
-	          <div className={`box mb-3 ${lp.featured ? 'featured' : null}`} data-aos="fade-up">
-							{lp.advanced && (<span className="advanced">Advanced</span>)}
-	            <h3>{lp.name}</h3>
-	            <h4><sup>$</sup>{lp.rate}<span> / month</span></h4>
+					{prices.map(price => (
+	        <div key={price.id} className="col-lg-3 col-md-6">
+	          <div className={`box mb-3 ${price.featured ? 'featured' : null}`} data-aos="fade-up">
+							{price.advanced && (<span className="advanced">Advanced</span>)}
+	            <h3>{price.name}</h3>
+	            <h4><sup>$</sup>{price.rate}<span> / month</span></h4>
 	            <ul>
-	              {lp.feature.map((lpf,idx) => (<li key={idx}>{lpf}</li>))}
+	              {price.feature.map((pricef,idx) => (<li key={idx}>{pricef}</li>))}
 	            </ul>
 	            <div className="btn-wrap">
-	              <a href="#" className="btn-buy">Buy Now</a>
+	              <Link to="#" className="btn-buy">Buy Now</Link>
 	            </div>
 	          </div>
 	        </div>

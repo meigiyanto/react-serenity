@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Breadcrumb from './../components/widget/Breadcrumb';
+import clients from './../data/clients';
+import testimonials from './../data/testimonials';
+import workprocess from './../data/workprocess';
 
 const settings = {
   dots: true,
@@ -14,117 +18,7 @@ const settings = {
   cssEase: "linear"
 };
 
-const workprocess = [
-	{
-		id: 1,
-		name: 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',
- 	  image: 'assets/img/work-process-1.png',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-		lists: ['Ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Duis aute irure dolor in reprehenderit in voluptate velit.']
-	},
-	{
-		id: 2,
-		name: 'Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in',
- 	  image: 'assets/img/work-process-2.png',
-		description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-	},
-	{
-		id: 3,
-		name: 'Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas',
- 	  image: 'assets/img/work-process-3.png',
-		description: 'Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.',
-		lists: ['Ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Duis aute irure dolor in reprehenderit in voluptate velit.', 'Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.']
-	},
-	{
-		id: 4,
-		name: 'Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas',
- 	  image: 'assets/img/work-process-4.png',
-		description: 'Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.',
-		lists: ['Ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Duis aute irure dolor in reprehenderit in voluptate velit.', 'Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.']
-	},
-];
-
-
-const testimonials = [
-	{
-		id: 1,
-    image: 'assets/img/testimonials/testimonials-1.jpg',
-		name: 'Saul Goodman',
-	  occupation: 'CEO & Founder',
-		rate: '',
-  	quote: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper',
-	},
-	{
-		id: 2,
-    image: 'assets/img/testimonials/testimonials-2.jpg',
-		name: 'Sara Wilson',
-	  occupation: 'Designer',
-		rate: '',
-  	quote: 'Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.',
-	},
-	{
-		id: 3,
-    image: 'assets/img/testimonials/testimonials-3.jpg',
-		name: 'Jena Karlis',
-	  occupation: 'Store Owner',
-		rate: '',
-  	quote: 'Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.',
-	},
-	{
-		id: 4,
-    image: 'assets/img/testimonials/testimonials-4.jpg',
-		name: 'Matt Brandon',
-	  occupation: 'Freelancer',
-		rate: '',
-  	quote: 'Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.',
-  },
-	{
-		id: 5,
-    image: 'assets/img/testimonials/testimonials-5.jpg',
-		name: 'John Larson',
-	  occupation: 'Entrepeneur',
-		rate: '',
-  	quote: 'Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.',
-  }
-];
-
-const clients = [
-	{
-		id: 1,
-		image: 'assets/img/clients/client-1.png'
-	},
-	{
-		id: 2,
-		image: 'assets/img/clients/client-2.png'
-	},
-	{
-		id: 3,
-		image: 'assets/img/clients/client-3.png'
-	},
-	{
-		id: 4,
-		image: 'assets/img/clients/client-4.png'
-	},
-	{
-		id: 5,
-		image: 'assets/img/clients/client-5.png'
-	},
-	{
-		id: 6,
-		image: 'assets/img/clients/client-6.png'
-	},
-	{
-		id: 7,
-		image: 'assets/img/clients/client-7.png'
-	},
-	{
-		id: 8,
-		image: 'assets/img/clients/client-8.png'
-	}
-]
-
-function SubAbout() {
+export function SubAbout() {
 	return (
     <section id="about" className="about">
       <div className="container">
@@ -141,7 +35,6 @@ function SubAbout() {
                 </div>
               </div>
 
-							{/* */}
               <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div className="count-box py-5">
                   <i className="bi bi-journal-richtext"></i>
@@ -165,7 +58,6 @@ function SubAbout() {
                   <p>Awards</p>
                 </div>
               </div>
-							{/* */}
 
             </div>
           </div>
@@ -175,7 +67,7 @@ function SubAbout() {
 
           <div className="col-lg-6 video-box align-self-baseline position-relative">
             <img src="assets/img/about.jpg" className="img-fluid" alt="" />
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox play-btn mb-4"></a>
+            <Link to="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox play-btn mb-4"></Link>
           </div>
 
           <div className="col-lg-6 pt-3 pt-lg-0 content">
@@ -372,6 +264,7 @@ function About() {
 			<Breadcrumb page="About" description="Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium."/>
 			<SubAbout />
 		  <WorkProcess />
+  		<Skills />
   		<Testimonials />
 			<Clients />
 		</main>

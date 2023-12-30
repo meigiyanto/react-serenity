@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Breadcrumb from './../components/widget/Breadcrumb';
-import foods from './../foods';
+import foods from './../data/foods';
 
 const Buttons = ({ filterItem, setItem, menuItems }) => {
   return (
@@ -9,7 +9,8 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
 				<div className="btn-groups">
 	        {menuItems.map((val, id) => {
 	          return (
-	            <button key={id} type="button"
+	            <button
+ 								type="button"
 	              className="btn btn-dark text-white"
 	              onClick={() => filterItem(val)}
 	              key={id}
