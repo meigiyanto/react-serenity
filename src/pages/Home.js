@@ -8,7 +8,7 @@ function Hero() {
 		  <div className="hero-container" data-aos="fade-up">
 		    <h1>Welcome to Serenity</h1>
 		    <h2>We are team of talented designers making websites with Bootstrap</h2>
-		    <Link to="#about" className="btn-get-started scrollto">Get Started</Link>
+		    <a href="#about" className="btn-get-started scrollto">Get Started</a>
 		  </div>
 		</section>
 	)
