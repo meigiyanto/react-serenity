@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
+import posts from './../../data/posts';
 
 export default function Category() {
+  const categories = [...new Set(posts.map(post => post.category.title))];
 	return (
 		<>
 	    <h3 className="sidebar-title">Categories</h3>
 	    <div className="sidebar-item categories">
 	      <ul>
-	        <li><Link to="#">General <span>(25)</span></Link></li>
-	        <li><Link to="#">Lifestyle <span>(12)</span></Link></li>
-	        <li><Link to="#">Travel <span>(5)</span></Link></li>
-	        <li><Link to="#">Design <span>(22)</span></Link></li>
-	        <li><Link to="#">Creative <span>(8)</span></Link></li>
-	        <li><Link to="#">Educaion <span>(14)</span></Link></li>
+	      {
+	      	categories.map((category, idx) => <li key={idx}><Link to={`${category[0].toLowerCase()+category.slice(1)}`}>{category}<span></span></Link></li>)
+	      }
 	      </ul>
 	    </div>
 		</>
