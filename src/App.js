@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-
 import Layout from './layouts/Layout';
 
 import Home from './pages/Home';
@@ -10,6 +9,7 @@ import Blog from './pages/Blog';
 import BlogSingle from './pages/BlogSingle';
 
 import Contact from './pages/Contact';
+import Country from './pages/Country';
 import Food from './pages/Food';
 import Services from './pages/Services';
 
@@ -18,6 +18,9 @@ import PortfolioSingle from './pages/PortfolioSingle';
 
 import Pricing from './pages/Pricing';
 import NoMatch from './pages/NoMatch';
+
+// import AuthProvider from "./provider/AuthProvider";
+// import Routes from "./routes";
 
 function App() {
 	return (
@@ -37,6 +40,7 @@ function App() {
 					</Route>
 
 					<Route path="contact" element={<Contact />} />
+					<Route path="country" element={<Country />} />
 					<Route path="foods" element={<Food />} />
 					<Route path="services" element={<Services />} />
 
@@ -52,5 +56,15 @@ function App() {
 		</>
 	);
 }
+
+/*
+function App() {
+	return (
+		<AuthProvider>
+			<Routes />
+		</AuthProvider>
+	)
+}
+*/
 
 export default App;

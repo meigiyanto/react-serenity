@@ -26,7 +26,7 @@ export default function Tag() {
 	    <div className="sidebar-item tags">
 	      <ul>
 	      {
-	      	tags.map((tag, idx) => (<li><Link>{tag}</Link></li>))
+	      	tags.map((tag, idx) => (<li key={idx}><Link>{tag}</Link></li>))
 	      }
 	      </ul>
 	    </div>
