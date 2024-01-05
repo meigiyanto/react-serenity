@@ -3,70 +3,52 @@ import { Link, NavLink } from 'react-router-dom';
 
 import menu from './../data/menu';
 
-function Dropdown() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(!open);
-
-  return (
-		<>
-				{
-					menu.map(m => (
-						<li key={m.id} className={m.children ? 'dropdown' : ''}>
-							{ !m.children ? (
-								<Link to={m.path}>
-									{m.name}
-								</Link> ) : (
-								<>
-									<Link to={m.path} onClick={handleOpen}>
-										<span>{m.name}</span>
-										{ !open ?
-											(<i className="bi bi-chevron-down"></i>)
-											:
-											(<i className="bi bi-chevron-right"></i>)
-										}
-									</Link>
-
-									{open ? (<ul className={open ? "dropdown-active" : null}>
-										{
-											m.children.map(mc => { return !mc.children ? (
-													<li key={mc.id}>
-														<Link to={mc.path}>{mc.name}</Link>
-													</li>
-											) : (
-														<li key={mc.id}>
-															<Link to={mc.path} onClick={handleOpen}>
-																<span>{mc.name}</span>
-																{ open ?
-																	(<i className="bi bi-chevron-down"></i>)
-																	:
-																	(<i className="bi bi-chevron-right"></i>)
-																}
-															</Link>
-														</li>
-													)
-											}
-										)
-									}
-
-									</ul>) : <></>}
-								</>
-								)}
-						</li>
-	 	 		  ))
-				}
-		</>
-	)
-}
-
 function Navbar() {
 	const [toggle, setToggle] = useState(false);
   const handleToggle = () => setToggle(!toggle);
+  const [dropdown, setDropdown] = useState(false);
+	const handleDropdown = () => setDropdown(!dropdown);
 
 	return (
 		<nav id="navbar" className={!toggle ? "navbar" : "navbar navbar-mobile"}>
 			<ul>
-				<Dropdown />
+				<li><Link className="active" to="/">Home</Link></li>
+					<li className="dropdown">
+						<Link to="#" onClick={handleDropdown}>
+				        <span>About</span>
+								{!dropdown ? <i className="bi bi-chevron-right"></i> : <i className="bi bi-chevron-down"></i>}
+				      </Link>
+					  {dropdown ? (<ul className={dropdown ? 'dropdown-active' : ''}>
+					    <li><Link to="about">About</Link></li>
+					    <li><Link to="team">Team</Link></li>
+					    <li className="dropdown">
+					      <Link to="#" onClick={handleDropdown}>
+					        <span>Deep Drop Down</span>
+									{!dropdown ? <i className="bi bi-chevron-down"></i> : <i className="bi bi-chevron-right"></i>}
+					      </Link>
+
+					      {dropdown ? (<></>) : (<ul className={dropdown ? '' : 'dropdown-active'}>
+					        <li><Link to="#">Deep Drop Down 1</Link></li>
+					        <li><Link to="#">Deep Drop Down 2</Link></li>
+					        <li><Link to="#">Deep Drop Down 3</Link></li>
+					        <li><Link to="#">Deep Drop Down 4</Link></li>
+					        <li><Link to="#">Deep Drop Down 5</Link></li>
+					      </ul>)}
+
+					    </li>
+					  </ul>) : <></>}
+
+					</li>
+
+					<li><Link to="services">Services</Link></li>
+					<li><Link to="pricing">Pricing</Link></li>
+					<li><Link to="portfolio">Portfolio</Link></li>
+					<li><Link to="blog">Blog</Link></li>
+					<li><Link to="contact">Contact</Link></li>
+
+					<li><Link className="getstarted" to="about">Get Started</Link></li>
 			</ul>
+
 			{ !toggle ?
  				(<i onClick={handleToggle} className="bi mobile-nav-toggle bi-list"></i>)
 				:
