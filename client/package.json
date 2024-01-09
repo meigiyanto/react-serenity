@@ -5,6 +5,13 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
+    "react-router-dom": "^6.21.1",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies" : {
     "@srexi/purecounterjs": "^1.5.0",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.4",
@@ -12,11 +19,6 @@
     "classnames": "^2.5.0",
     "cra-template": "1.2.0",
     "date-fns": "^3.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.0.4",
-    "react-router-dom": "^6.21.1",
-    "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
