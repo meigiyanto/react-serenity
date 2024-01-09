@@ -8,6 +8,9 @@ import Breadcrumb from '../components/layouts/frontend/widget/Breadcrumb';
 import clients from './../data/clients';
 import testimonials from './../data/testimonials';
 import workprocess from './../data/workprocess';
+import PureCounter from "@srexi/purecounterjs";
+
+const { pure } = new PureCounter();
 
 const settings = {
   dots: true,
@@ -20,6 +23,33 @@ const settings = {
   cssEase: "linear"
 };
 
+const abouts = [
+	{
+	 id: 1,
+	 title: 'Happy Client',
+	 start: 0,
+	 end: 65,
+	},
+	{
+	 id: 2,
+	 title: 'Projects',
+	 start: 0,
+	 end: 85,
+	},
+	{
+	 id: 3,
+	 title: 'Years of Experience',
+	 start: 0,
+	 end: 27,
+	},
+	{
+	 id: 4,
+	 title: 'Awards',
+	 start: 0,
+	 end: 22,
+	}
+]
+
 export function SubAbout() {
 	return (
     <section id="about" className="about">
@@ -28,39 +58,20 @@ export function SubAbout() {
         <div className="row justify-content-end">
           <div className="col-lg-11">
             <div className="row justify-content-end">
-
-              <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div className="count-box py-5">
-                  <i className="bi bi-emoji-smile"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="65" className="purecounter">0</span>
-                  <p>Happy Clients</p>
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div className="count-box py-5">
-                  <i className="bi bi-journal-richtext"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="85" className="purecounter">0</span>
-                  <p>Projects</p>
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div className="count-box pb-5 pt-0 pt-lg-5">
-                  <i className="bi bi-clock"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="27" className="purecounter">0</span>
-                  <p>Years of experience</p>
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div className="count-box pb-5 pt-0 pt-lg-5">
-                  <i className="bi bi-award"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="22" className="purecounter">0</span>
-                  <p>Awards</p>
-                </div>
-              </div>
-
+            	{
+            		abouts.map(about => (
+		              <div key={about.id} className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+		                <div className="count-box py-5">
+		                  <i className="bi bi-emoji-smile"></i>
+		                  <span
+		                  	data-purecounter-start={about.start}
+		                  	data-purecounter-end={about.end}
+		                  	className="purecounter">{pure}</span>
+		                  <p>{about.title}</p>
+		                </div>
+		              </div>
+            		))
+            	}
             </div>
           </div>
         </div>
@@ -68,7 +79,7 @@ export function SubAbout() {
         <div className="row">
 
           <div className="col-lg-6 video-box align-self-baseline position-relative">
-            <img src="assets/img/about.jpg" className="img-fluid" alt="" />
+            <img src="assets/frontend/img/about.jpg" className="img-fluid" alt="" />
             <Link to="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox play-btn mb-4"></Link>
           </div>
 
@@ -139,7 +150,7 @@ function Skills() {
 
         <div className="row">
           <div className="col-lg-6" data-aos="fade-right">
-            <img src="assets/img/skills-img.jpg" className="img-fluid" alt="" />
+            <img src="assets/frontend/img/skills-img.jpg" className="img-fluid" alt="" />
           </div>
           <div className="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>

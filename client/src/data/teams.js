@@ -1,7 +1,7 @@
 const teams = [
 	{
 		id: 1,
-    image: '../assets/img/team/team-1.jpg',
+    image: '../assets/frontend/img/team/team-1.jpg',
 		name: 'Walter White',
 	  occupation: 'Chief Executive Officer',
 		rate: '',
@@ -9,7 +9,7 @@ const teams = [
 	},
 	{
 		id: 2,
-    image: '../assets/img/team/team-2.jpg',
+    image: '../assets/frontend/img/team/team-2.jpg',
 		name: 'Sarah Johnson',
 	  occupation: 'Product Manager',
 		rate: '',
@@ -17,7 +17,7 @@ const teams = [
 	},
 	{
 		id: 3,
-    image: '../assets/img/team/team-3.jpg',
+    image: '../assets/frontend/img/team/team-3.jpg',
 		name: 'William Anderson',
 	  occupation: 'CTO',
 		rate: '',
@@ -25,7 +25,7 @@ const teams = [
 	},
 	{
 		id: 4,
-    image: '../assets/img/team/team-4.jpg',
+    image: '../assets/frontend/img/team/team-4.jpg',
 		name: 'Amanda Jepson',
 	  occupation: 'Accountant',
 		rate: '',
@@ -33,7 +33,7 @@ const teams = [
   },
 	{
 		id: 5,
-    image: '../assets/img/team/team-5.jpg',
+    image: '../assets/frontend/img/team/team-5.jpg',
 		name: 'Niall Katz',
 	  occupation: 'Marketing',
 		rate: '',
@@ -41,7 +41,7 @@ const teams = [
   },
 	{
 		id: 6,
-    image: '../assets/img/team/team-6.jpg',
+    image: '../assets/frontend/img/team/team-6.jpg',
 		name: 'Demi Lewis',
 	  occupation: 'Financing',
 		rate: '',

@@ -16,7 +16,7 @@ function Breadcrumb(props) {
 
       <div className="container">
         <ol>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           {subPage !== null ? (<li><Link to={`/${page[0].toLowerCase()+page.slice(1)}`}>{page}</Link></li>) : (<li>{page}</li>)}
           {subPage !== null ? (<li>{subPage}</li>) : null}
         </ol>

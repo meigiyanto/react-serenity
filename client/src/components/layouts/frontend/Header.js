@@ -72,13 +72,13 @@ function Navbar() {
 	)
 }
 
-function Header() {
+const Header = () => {
 	return (
   	<header id="header" className="fixed-top d-flex align-items-center">
 			<div className="container d-flex align-items-center justify-content-between">
 				<div className="logo">
 					<h1 className="text-light">
-						<NavLink to="/">Serenity</NavLink>
+						<NavLink to="/home">Serenity</NavLink>
 					</h1>
 					{/*<Link to="/">
 						<img src="../assets/img/logo.png" alt="" className="img-fluid" />
@@ -90,4 +90,4 @@ function Header() {
 	)
 }
 
-export default Header;
+export { Header };

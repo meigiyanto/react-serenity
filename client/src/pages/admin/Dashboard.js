@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 // import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext';
-import { Layout } from "../../components/layouts/backend/Layout";
 import Welcome from "../../components/layouts/backend/Welcome";
 
 const Dashboard = () => {

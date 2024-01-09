@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { SubAbout } from './../pages/About';
 import { SubService } from './../pages/Services';
@@ -5,7 +6,7 @@ import { SubService } from './../pages/Services';
 function Hero() {
 	return (
 		<section id="hero" style={{
-			background: "url('../assets/img/hero-bg.jpg') top center",
+			background: "url('../assets/frontend/img/hero-bg.jpg') top center",
 			backgroundSize: "cover",
 			width: "100%",
 			height: "75vh",

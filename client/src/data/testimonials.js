@@ -1,7 +1,7 @@
 const testimonials = [
 	{
 		id: 1,
-    image: 'assets/img/testimonials/testimonials-1.jpg',
+    image: 'assets/frontend/img/testimonials/testimonials-1.jpg',
 		name: 'Saul Goodman',
 	  occupation: 'CEO & Founder',
 		rate: '',
@@ -9,7 +9,7 @@ const testimonials = [
 	},
 	{
 		id: 2,
-    image: 'assets/img/testimonials/testimonials-2.jpg',
+    image: 'assets/frontend/img/testimonials/testimonials-2.jpg',
 		name: 'Sara Wilson',
 	  occupation: 'Designer',
 		rate: '',
@@ -17,7 +17,7 @@ const testimonials = [
 	},
 	{
 		id: 3,
-    image: 'assets/img/testimonials/testimonials-3.jpg',
+    image: 'assets/frontend/img/testimonials/testimonials-3.jpg',
 		name: 'Jena Karlis',
 	  occupation: 'Store Owner',
 		rate: '',
@@ -25,7 +25,7 @@ const testimonials = [
 	},
 	{
 		id: 4,
-    image: 'assets/img/testimonials/testimonials-4.jpg',
+    image: 'assets/frontend/img/testimonials/testimonials-4.jpg',
 		name: 'Matt Brandon',
 	  occupation: 'Freelancer',
 		rate: '',
@@ -33,7 +33,7 @@ const testimonials = [
   },
 	{
 		id: 5,
-    image: 'assets/img/testimonials/testimonials-5.jpg',
+    image: 'assets/frontend/img/testimonials/testimonials-5.jpg',
 		name: 'John Larson',
 	  occupation: 'Entrepeneur',
 		rate: '',

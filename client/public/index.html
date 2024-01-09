@@ -2,20 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React App</title>
-    <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+    <link href="assets/frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
 
@@ -23,5 +19,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- <script src="../dist/bundle.js"></script> -->
+	  <script>
+	    const baseURL = window.location.host.includes("localhost")
+	      ? "http://localhost:3000/"
+	      : "URL_TO_DEPLOYED_APP";
+	    const bundleScript = document.createElement('script');
+	    bundleScript.src = baseURL + "dist/bundle.js";
+	    document.getElementsByTagName('script')[0].parentNode.appendChild(bundleScript);
+	  </script>
   </body>
 </html>
