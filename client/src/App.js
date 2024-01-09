@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout as FrontendLayout } from './components/layouts/frontend/Layout';
-import { Layout as BackendLayout } from './components/layouts/backend/Layout';import {hot} from "react-hot-loader";
+import { Layout as BackendLayout } from './components/layouts/backend/Layout';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -76,4 +76,4 @@ const App = () => {
 	return (<RouterProvider router={router} />);
 }
 
-export default hot(module)(App);
+export default App;
