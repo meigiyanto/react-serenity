@@ -1,7 +1,12 @@
 import express from "express";
+
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
+import tagRoutes from "./routes/tags.js";
+import albumRoutes from "./routes/albums.js";
+import galleryRoutes from "./routes/galleries.js";
+
 import cookieParser from "cookie-parser";
 import multer from "multer";
 
@@ -28,6 +33,9 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/tags", tagRoutes);
+app.use("/api/albums", albumRoutes);
+app.use("/api/galleries", galleryRoutes);
 
 app.listen(8800, () => {
   console.log("Connected!");
