@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 import { usePagination, DOTS } from '../hooks/usePagination';
 
 const Pagination = props => {
   const {
     onPageChange,
+    className,
     totalCount,
     siblingCount = 1,
     currentPage,
@@ -32,29 +34,55 @@ const Pagination = props => {
   let lastPage = paginationRange[paginationRange.length - 1];
 
   return (
-    <ul className="justify-content-center">
-      <li onClick={onPrevious}>
-				<Link aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	      </Link>
+    <ul
+      className={classnames('', { [className]: className })}
+    >
+      <li
+        className={classnames('', {
+          disabled: currentPage === 1
+        })}
+        onClick={onPrevious}
+      >
+	        <Link aria-label="Previous">&laquo;</Link>
       </li>
 
       {paginationRange.map(pageNumber => {
         if (pageNumber === DOTS) {
-          return <li key={pageNumber} className={currentPage === pageNumber ? 'active' : 'dots'}>&#8230;</li>;
+          return <li className="dots">&#8230;</li>;
+        }
+
+        if (pageNumber === currentPage) {
+          return (<li
+         					  key={pageNumber}
+          					className="active"
+          					onClick={() => onPageChange(pageNumber)}
+          				>
+          					<Link>{pageNumber}</Link>
+          				</li>
+          );
         }
 
         return (
-          <li className={currentPage === pageNumber ? 'active' : '' } key={pageNumber} onClick={() => onPageChange(pageNumber)}>
+          <li
+            key={pageNumber}
+            className={classnames('', {
+              active: pageNumber === currentPage
+            })}
+            onClick={() => onPageChange(pageNumber)}
+          >
             <Link>{pageNumber}</Link>
           </li>
         );
+
       })}
 
-      <li onClick={onNext}>
-				<Link aria-label="Previous">
-	        <span aria-hidden="true">&raquo;</span>
-	      </Link>
+      <li
+        className={classnames('', {
+          disabled: currentPage === lastPage
+        })}
+        onClick={onNext}
+      >
+	        <Link aria-label="Next">&raquo;</Link>
       </li>
     </ul>
   );
