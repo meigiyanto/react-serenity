@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Breadcrumb from '../components/layouts/frontend/widget/Breadcrumb';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 
 import clients from './../data/clients';
 import testimonials from './../data/testimonials';

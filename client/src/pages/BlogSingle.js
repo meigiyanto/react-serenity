@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Sidebar from '../components/layouts/frontend/Sidebar';
-import Breadcrumb from '../components/layouts/frontend/widget/Breadcrumb';
+import Sidebar from '../components/frontend/Sidebar';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 
 function BlogSingle() {
 	const [post, setPost] = useState({});
@@ -37,7 +37,7 @@ function BlogSingle() {
 							<article className="entry entry-single">
 							  <div className="entry-img">
 							    <img
-							    	src={`../assets/img/blog/${post.picture}`}
+							    	src={`../assets/frontend/img/blog/${post.picture}`}
 							    	alt={post.picture_description}
 							    	className="img-fluid"
 							    />

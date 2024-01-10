@@ -1,4 +1,4 @@
-import Breadcrumb from './../components/layouts/frontend/widget/Breadcrumb';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 import { Link } from 'react-router-dom';
 import listsservice from './../data/listsservice';
 import listsfeature from './../data/listsfeature';

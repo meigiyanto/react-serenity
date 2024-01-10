@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from './../components/layouts/frontend/widget/Breadcrumb';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 import teams from './../data/teams';
 
 function Team() {

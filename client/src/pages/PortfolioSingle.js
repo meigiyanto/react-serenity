@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import Breadcrumb from './../components/layouts/frontend/widget/Breadcrumb'
+import Breadcrumb from '../components/frontend/widget/Breadcrumb'
 import portfolios from './../data/portfolios';
 
 function PortfolioSingle() {
