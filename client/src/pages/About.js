@@ -8,8 +8,9 @@ import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 import clients from './../data/clients';
 import testimonials from './../data/testimonials';
 import workprocess from './../data/workprocess';
+// eslint-disable-next-line
 import PureCounter from "@srexi/purecounterjs";
-
+// eslint-disable-next-line
 const { pure } = new PureCounter();
 
 const settings = {
