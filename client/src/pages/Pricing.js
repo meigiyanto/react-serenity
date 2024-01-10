@@ -49,7 +49,7 @@ function Pricing() {
 		      </div>
 
 					{faqs.map(faq => (
-		      <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up">
+		      <div key={faq.id} className="row faq-item d-flex align-items-stretch" data-aos="fade-up">
 		        <div className="col-lg-5">
 		          <i className="bx bx-help-circle"></i>
 		          <h4>{faq.question}</h4>

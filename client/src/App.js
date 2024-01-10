@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout as FrontendLayout } from './layouts/frontend/Layout';
-// import { Layout as BackendLayout } from './layouts/backend/Layout';
+import { Layout as BackendLayout } from './layouts/backend/Layout';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -62,10 +62,10 @@ const router = createBrowserRouter([
 			}
 		],
 	},
-	/* {
+	{
 		path: '/dashboard',
 		element: <BackendLayout />
-	}, */
+	},
 	{
 		path: '*',
 		element: <NoMatch />

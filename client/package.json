@@ -11,13 +11,18 @@
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1"
   },
-  "devDependencies" : {
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@srexi/purecounterjs": "^1.5.0",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.4",
+    "bootstrap": "^5.3.2",
     "classnames": "^2.5.0",
     "cra-template": "1.2.0",
     "date-fns": "^3.0.6",
+    "react-feather": "^2.0.10",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },

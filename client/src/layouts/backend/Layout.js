@@ -1,15 +1,30 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import {Header} from '../../components/frontend/Header';
-import {Footer} from '../../components/frontend/Footer';
+
+import Navbar from '../../components/backend/Navbar';
+import { Sidenav } from '../../components/backend/Sidenav';
+import { Header } from '../../components/backend/Header';
+import { Footer } from '../../components/backend/Footer';
 
 const Layout = () => {
 	return (
 		<>
-			<Header />
-			<Outlet />
-			<Footer />
+    	<Navbar />
+	    <div id="layoutSidenav">
+      	<Sidenav />
+	      <div id="layoutSidenav_content">
+	      	<main>
+	       		<Header />
+	       		<div className="container-xl px-4 mt-n10">
+							<Outlet />
+							<h3>Dashboard</h3>
+	       		</div>
+	      	</main>
+	      	<Footer />
+	    	</div>
+	  	</div>
 		</>
- );
+	);
 }
 
 export {Layout};
