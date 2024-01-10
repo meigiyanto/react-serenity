@@ -63,7 +63,7 @@ function Blog() {
 																<time
 																	dateTime={format(new Date(post.created_at), 'dd-mm-yyyy')}
 																>
-																	{format(new Date(post.created_at), 'dd MMM yyyy')}
+																	{new Date(post.created_at).toDateString()}
 																</time>
 															</Link>
 														</li>
@@ -88,6 +88,7 @@ function Blog() {
 
 	  					<div className="mb-5 blog-pagination">
 						   	{posts && (<Pagination
+						   	  className="justify-content-center"
 									currentPage={currentPage}
 					        totalCount={posts.length}
 					        pageSize={pageSize}
@@ -112,3 +113,8 @@ function Blog() {
 }
 
 export default Blog;
+
+
+/*
+
+*/
