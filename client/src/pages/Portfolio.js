@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Breadcrumb from './../components/layouts/frontend/widget/Breadcrumb';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
 import portfolios from './../data/portfolios';
 
 function ListFilter({ filterItem, setItem, portfolioItems }) {

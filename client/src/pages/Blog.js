@@ -2,9 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
-import Sidebar from '../components/layouts/frontend/Sidebar';
-import Breadcrumb from '../components/layouts/frontend/widget/Breadcrumb';
-import Pagination from '../components/layouts/frontend/widget/Pagination';
+import Sidebar from '../components/frontend/Sidebar';
+import Breadcrumb from '../components/frontend/widget/Breadcrumb';
+import Pagination from '../components/frontend/widget/Pagination';
 
 let pageSize = 4;
 
@@ -41,7 +41,7 @@ function Blog() {
 										  <article key={post.id} className="entry">
 								        <div className="entry-img">
 								          <img
-														src={`../assets/img/blog/${post.picture}`}
+														src={`../assets/frontend/img/blog/${post.picture}`}
 														alt={post.picture_description}
 														className="img-fluid"
 													/>
