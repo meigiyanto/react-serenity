@@ -1,12 +1,18 @@
-import React from 'react';
+import { useEffect } from 'react';
+import './styles.css';
 import { Outlet } from 'react-router-dom';
 
 import Navbar from '../../components/backend/Navbar';
 import { Sidenav } from '../../components/backend/Sidenav';
-import { Header } from '../../components/backend/Header';
 import { Footer } from '../../components/backend/Footer';
 
 const Layout = () => {
+	useEffect(() => {
+	 if(!document.body.classList.contains('nav-fixed')) {
+	 	  document.body.classList.add('nav-fixed');
+	 }
+	}, []);
+
 	return (
 		<>
     	<Navbar />
@@ -14,11 +20,7 @@ const Layout = () => {
       	<Sidenav />
 	      <div id="layoutSidenav_content">
 	      	<main>
-	       		<Header />
-	       		<div className="container-xl px-4 mt-n10">
-							<Outlet />
-							<h3>Dashboard</h3>
-	       		</div>
+						<Outlet />
 	      	</main>
 	      	<Footer />
 	    	</div>

@@ -15,6 +15,15 @@ import Team from './pages/Team';
 
 import NoMatch from './pages/NoMatch';
 
+import Dashboard from './pages/admin/Dashboard';
+import Posts from './pages/admin/Posts';
+import SinglePost from './pages/admin/SinglePost';
+import EditPost from './pages/admin/EditPost';
+
+// import Categories from './pages/admin/Categories';
+// import Tags from './pages/admin/Tags';
+// import Pages from './pages/admin/Pages';
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -64,7 +73,21 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/dashboard',
-		element: <BackendLayout />
+		element: <BackendLayout />,
+		children: [
+			{
+				path: 'dashboard',
+				element: <Dashboard />
+			},
+			{
+				path: 'posts',
+				element: <Posts />,
+			},
+			{
+			  path: 'posts/detail/:id',
+			  element: <SinglePost />
+			},
+ 		]
 	},
 	{
 		path: '*',

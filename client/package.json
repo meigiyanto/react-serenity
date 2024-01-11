@@ -24,6 +24,7 @@
     "date-fns": "^3.0.6",
     "react-feather": "^2.0.10",
     "react-slick": "^0.29.0",
+    "simple-datatables": "^9.0.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
