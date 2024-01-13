@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import * as Icon from 'react-feather';
 
-const SinglePost = () => {
+const Single = () => {
 	const [article, setArticle] = useState([]);
 	const { id }  = useParams();
 
@@ -13,7 +13,7 @@ const SinglePost = () => {
   }
 	useEffect(() => {
 	  fetchArticle();
-	},[])
+	},[article])
 
 	function createMarkup(val) {
 	  return {__html: val};
@@ -64,4 +64,4 @@ const SinglePost = () => {
 }
 
 
-export default SinglePost;
+export { Single }	;

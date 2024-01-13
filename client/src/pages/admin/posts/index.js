@@ -64,19 +64,19 @@ const Posts = () => {
 						    	 			<td>
 						    	 		 		<div className="btn-group">
 						    	 		 			<Link
-						    	 		 				to={`/posts/edit/${article.id}`}
+						    	 		 				to={`edit/${article.id}`}
 						    	 		 				className="btn btn-sm btn-warning"
 						    	 		 			>
 						    	 		 				<FontAwesomeIcon icon={faEdit} />
 						    	 		 			</Link>
 						    	 		 			<Link
-							    	 		 			to={`/dashboard/posts/detail/${article.id}`}
+							    	 		 			to={`detail/${article.id}`}
 							    	 		 			className="btn btn-sm btn-info"
 						    	 		 			>
 						    	 		 				<FontAwesomeIcon icon={faEye} />
 						    	 		 			</Link>
 						    	 		 			<Link
-						    	 		 				to={`/posts/delete/${article.id}`}
+						    	 		 				to={`delete/${article.id}`}
 						    	 		 				className="btn btn-sm btn-danger"
 						    	 		 			>
 						    	 		 				<FontAwesomeIcon icon={faTrash} />
@@ -95,6 +95,5 @@ const Posts = () => {
 		</>
 	)
 }
-
 
 export default Posts;

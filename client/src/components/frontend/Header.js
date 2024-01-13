@@ -1,73 +1,87 @@
-import React, { useState/*, useContext*/ } from 'react';
+import React, { useState /*, useContext*/ } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 // import { AuthContext } from '../../../context/authContext';
-// import menu from './../data/menu';
+import menu from './../../data/menu';
 
 function ListMenu({ path= null, name, children= null, onClick= null }) {
+	const [isClose, setIsClose] = useState(false);
+
 	return (
 		<>
 			{
 				!children ?
 				(<Link to={path}>{name}</Link>)
 				:
-				(<><Link
-					to={path}
-					onClick={onClick}
-				>
-					<span>{name}</span>
-					<i className="bi bi-chevron-right"></i>
-				</Link>{children}</>)
+				(<>
+					<Link to={path} onClick={onClick}>
+						<span>{name}</span>
+						<i className="bi bi-chevron-down"></i>
+					</Link>{children}
+				</>)
 			}
 		</>
 	)
 }
 
 function Navbar() {
-	const [toggle, setToggle] = useState(false);
-  const handleToggle = () => setToggle(!toggle);
+	const [isShow, setIsShow] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-	const handleDropdown = () => setDropdown(!dropdown);
 	// const {currentUser, logout} = useContext(AuthContext);
-	let isLoggedIn = false;
+	// let isLoggedIn = false;
 
 	return (
-		<nav id="navbar" className={!toggle ? "navbar" : "navbar navbar-mobile"}>
-			<ul>
-				<li><ListMenu name="Home" path="/home" /></li>
-				<li className="dropdown">
-					<ListMenu name="About" onClick={handleDropdown}>
-						<ul className={dropdown ? 'dropdown-active' : ''}>
-							<li><ListMenu name="About Us" path="/about" /></li>
-							<li><ListMenu name="Our Team" path="/team" /></li>
-							<li className="dropdown">
-								<ListMenu name="Other" onClick={handleDropdown}>
-									<ul className={dropdown ? 'dropdown-active' : ''}>
-										<li><ListMenu name="Link 1" path="/link-1" /></li>
-										<li><ListMenu name="Link 2" path="/link-2" /></li>
-										<li><ListMenu name="Link 3" path="/link-3" /></li>
-									</ul>
-								</ListMenu>
-							</li>
-						</ul>
-					</ListMenu>
-				</li>
-				<li><ListMenu name="Blog" path="/blog" /></li>
-				<li><ListMenu name="Contact" path="/contact" /></li>
-				<li><ListMenu name="Pricing" path="/pricing" /></li>
-				<li><ListMenu name="Portfolio" path="/portfolio" /></li>
-				<li><ListMenu name="Services" path="/services" /></li>
-				{ isLoggedIn ? (
-				<><li><Link className="getstarted" to="login">Login</Link></li>
-				<li><Link className="getstarted" to="register">Register</Link></li></>) : (
-				<><li><Link className="getstarted" to="dashboard">Dashboard</Link></li>
-				<li><Link className="getstarted">Logout</Link></li></>) }
-			</ul>
+		<nav id="navbar" className={!isShow ? "navbar" : "navbar navbar-mobile"}>
+		{
+			isShow ? (<ul>
+				{
+					menu.map(m => (
+						<li key={m.id} className={m.children ? "dropdown" : null}>
+							<ListMenu
+								name={m.name}
+								path={m.path}
+								onClick={() => setDropdown(!dropdown)}
+							>
+							{
+							 m.children && (<ul className={isShow ? "dropdown-active" : null}>
+							  {
+							   m.children.map(mc => (
+							   	<li key={mc.id} className={mc.children ? "dropdown" : null}>
+							   		<ListMenu
+							   			name={mc.name}
+							   			path={mc.path}
+							   			onClick={() => setDropdown(!dropdown)}
+							   		>
+							   		{
+							   			mc.children && (<ul className={!isShow ? "dropdown-active" : null}>
+							   			{
+							   			 mc.children.map(mcc => (
+							   			 	<li key={mcc.id}>
+							   			 		<ListMenu name={mcc.name} path={mcc.path} />
+							   			 	</li>
+							   			 ))
+							   			}
+							   			</ul>)
+							   		 }
+							   		 </ListMenu>
+							   	</li>
+							   ))
+							 	}
+							 </ul>)
+							}
+							</ListMenu>
+						</li>
+					))
+				}
+			</ul>) : (<></>)
+		}
 
-			{ !toggle ?
- 				(<i onClick={handleToggle} className="bi mobile-nav-toggle bi-list"></i>)
-				:
-				(<i onClick={handleToggle} className="bi mobile-nav-toggle bi-x"></i>)
-			}
+
+		{	!isShow ?
+			(<i onClick={() => setIsShow(!isShow)} className="bi bi-list mobile-nav-toggle"></i>)
+			:
+			(<i onClick={() => setIsShow(!isShow)} className="bi mobile-nav-toggle bi-x"></i>)
+		}
+
 		</nav>
 	)
 }
@@ -91,3 +105,71 @@ const Header = () => {
 }
 
 export { Header };
+
+/*
+								m.children && (<ul
+									m.children.map(mc => (
+							 			<li key={mc.id} className={mc.children ? 'dropdown' : null}>
+							 				<ListMenu
+							 					name={mc.name}
+							 					path={mc.path}
+							 					onClick={(e) => { e.stopPropagation(); setDropdown(!dropdown) }}
+							 				>
+							 				{
+							 					isShow ? (<ul className={!dropdown ? null : "dropdown-active"}>
+							 					{
+							 						mc.children(mcc => (
+														<li key={mcc.id}>
+															<ListMenu name={mcc.name} path={mcc.path} />
+														</li>
+							 						))
+							 					}
+							 					</ul>) : (<></>)
+							 				}
+							 				</ListMenu>
+							 			</li>
+									))
+								</ul>)
+								
+
+			{
+				isShow ? (<ul>
+				{
+					menu.map(m => (
+
+								{
+									m.children && (<ul className={!dropdown ? null : "dropdown-active"}>
+									 	{
+									 		m.children.map(mc => (
+
+									 				{
+									 					mc.children && (<ul className={!dropdown ? null : "dropdown-active"}>
+									 					{
+									 						mc.children.map(mcc => (
+																
+									 						))
+									 					}
+									 					</ul>)
+									 				}
+									 				</ListMenu>
+									 			</li>
+									 		))
+									 	}
+									</ul>)
+								}
+							</ListMenu>
+						</li>
+					))
+				}
+				</ul>)
+				:
+				(<></>)
+			}
+*/
+
+
+/*
+							{
+
+							}
+*/

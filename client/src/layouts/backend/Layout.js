@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import './styles.css';
-import { Outlet } from 'react-router-dom';
+// import './styles.css';
+import { Outlet as BackendOutlet } from 'react-router-dom';
 
 import Navbar from '../../components/backend/Navbar';
 import { Sidenav } from '../../components/backend/Sidenav';
@@ -20,7 +20,7 @@ const Layout = () => {
       	<Sidenav />
 	      <div id="layoutSidenav_content">
 	      	<main>
-						<Outlet />
+						<BackendOutlet />
 	      	</main>
 	      	<Footer />
 	    	</div>

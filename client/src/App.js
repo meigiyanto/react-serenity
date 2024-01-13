@@ -1,4 +1,7 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+	RouterProvider,
+	createBrowserRouter
+} from 'react-router-dom';
 import { Layout as FrontendLayout } from './layouts/frontend/Layout';
 import { Layout as BackendLayout } from './layouts/backend/Layout';
 
@@ -16,9 +19,9 @@ import Team from './pages/Team';
 import NoMatch from './pages/NoMatch';
 
 import Dashboard from './pages/admin/Dashboard';
-import Posts from './pages/admin/Posts';
-import SinglePost from './pages/admin/SinglePost';
-import EditPost from './pages/admin/EditPost';
+import Posts from './pages/admin/posts/index';
+import { Single as SinglePost } from './pages/admin/posts/Single';
+// import Edit from './pages/admin/Posts/Edit';
 
 // import Categories from './pages/admin/Categories';
 // import Tags from './pages/admin/Tags';
@@ -81,12 +84,8 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'posts',
-				element: <Posts />,
-			},
-			{
-			  path: 'posts/detail/:id',
-			  element: <SinglePost />
-			},
+				element: <Posts />
+			}
  		]
 	},
 	{
