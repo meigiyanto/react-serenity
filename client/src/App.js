@@ -75,16 +75,20 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/dashboard',
+		path: '/admin',
 		element: <BackendLayout />,
 		children: [
 			{
-				path: 'dashboard',
+				path: 'admin',
 				element: <Dashboard />
 			},
 			{
 				path: 'posts',
 				element: <Posts />
+			},
+			{
+				path: 'posts/detail/:id',
+				element: <SinglePost />
 			}
  		]
 	},

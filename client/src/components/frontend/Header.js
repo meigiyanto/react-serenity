@@ -27,7 +27,7 @@ function ListMenu({ path= null, name, children= null, onClick= null }) {
 }
 
 function Navbar() {
-	const [isShow, setIsShow] = useState(false);
+	const isShow = false;
 	const handleShow = (elm = null) => {
 		elm?.target.parentElement.classList.toggle('navbar-mobile');
 		elm?.target.classList.toggle('bi-x');

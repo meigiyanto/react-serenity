@@ -17,79 +17,68 @@ const Posts = () => {
 
 	return (
 		<>
-			<header className="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
-		    <div className="container-fluid px-4">
-	        <div className="page-header-className">
-	          <div className="row align-items-center justify-classNameName-between pt-3">
-	            <div className="col-auto mb-3">
-	              <h3 className="page-header-title">
-                  <div className="page-header-icon">
-                  <Icon.List /> Posts List</div>
-	              </h3>
-	            </div>
+			<div className="container-fluid py-5 px-4">
+				<nav aria-label="breadcrumb">
+				  <ol className="breadcrumb">
+				    <li className="breadcrumb-item"><Link to="admin"><Icon.Home height={16} /> Dashboard</Link></li>
+				    <li className="breadcrumb-item active" aria-current="page"><Icon.BookOpen height={16} /> Posts</li>
+				  </ol>
+				</nav>
+			</div>
 
- 	          </div>
-	        </div>
-		    </div>
-			</header>
-
-			<div className="container-fluid px-4">
-			  <div className="card">
-			    <div className="card-body">
-			    	<div className="table table-responsive">
-			    		<table id="table-posts" className="table table-bordered table-striped">
-				    	 	<thead>
-				    	 		<tr>
-				    	 			<th width="15">
-				    	 				<input type="checkbox" />
-				    	 			</th>
-				    	 			<th width="25">#</th>
-				    	 			<th>Category</th>
-				    	 			<th>Title</th>
-				    	 			<th>Type</th>
-				    	 			<th>Headline</th>
-				    	 			<th>Action</th>
+			<div className="container-fluid px-4 mb-3">
+	    	<div className="table table-responsive">
+	    		<table id="table-posts" className="table table-bordered table-striped">
+		    	 	<thead>
+		    	 		<tr>
+		    	 			<th width="15">
+		    	 				<input type="checkbox" />
+		    	 			</th>
+		    	 			<th width="25">#</th>
+		    	 			<th>Category</th>
+		    	 			<th>Title</th>
+		    	 			<th>Type</th>
+		    	 			<th>Headline</th>
+		    	 			<th>Action</th>
+		    	 		</tr>
+		    	 	</thead>
+		    	 	<tbody>
+		    	 		{
+		    	 		 articles.map((article, idx) => (
+				    	 		<tr key={article.id}>
+				    	 			<td></td>
+				    	 			<td>{idx+1}</td>
+				    	 			<td>{article.category_id}</td>
+				    	 			<td>{article.title}</td>
+				    	 			<td>{`${article.type[0].toUpperCase() + article.type.slice(1)}`}</td>
+				    	 			<td>{article.headline === 'Y' ? 'Yes' : 'No'}</td>
+				    	 			<td>
+				    	 		 		<div className="btn-group">
+				    	 		 			<Link
+				    	 		 				to={`edit/${article.id}`}
+				    	 		 				className="btn btn-sm btn-warning"
+				    	 		 			>
+				    	 		 				<FontAwesomeIcon icon={faEdit} />
+				    	 		 			</Link>
+				    	 		 			<Link
+					    	 		 			to={`detail/${article.id}`}
+					    	 		 			className="btn btn-sm btn-info"
+				    	 		 			>
+				    	 		 				<FontAwesomeIcon icon={faEye} />
+				    	 		 			</Link>
+				    	 		 			<Link
+				    	 		 				to={`delete/${article.id}`}
+				    	 		 				className="btn btn-sm btn-danger"
+				    	 		 			>
+				    	 		 				<FontAwesomeIcon icon={faTrash} />
+				    	 		 			</Link>
+				    	 		 		</div>
+				    	 			</td>
 				    	 		</tr>
-				    	 	</thead>
-				    	 	<tbody>
-				    	 		{
-				    	 		 articles.map((article, idx) => (
-						    	 		<tr key={article.id}>
-						    	 			<td></td>
-						    	 			<td>{idx+1}</td>
-						    	 			<td>{article.category_id}</td>
-						    	 			<td>{article.title}</td>
-						    	 			<td>{`${article.type[0].toUpperCase() + article.type.slice(1)}`}</td>
-						    	 			<td>{article.headline === 'Y' ? 'Yes' : 'No'}</td>
-						    	 			<td>
-						    	 		 		<div className="btn-group">
-						    	 		 			<Link
-						    	 		 				to={`edit/${article.id}`}
-						    	 		 				className="btn btn-sm btn-warning"
-						    	 		 			>
-						    	 		 				<FontAwesomeIcon icon={faEdit} />
-						    	 		 			</Link>
-						    	 		 			<Link
-							    	 		 			to={`detail/${article.id}`}
-							    	 		 			className="btn btn-sm btn-info"
-						    	 		 			>
-						    	 		 				<FontAwesomeIcon icon={faEye} />
-						    	 		 			</Link>
-						    	 		 			<Link
-						    	 		 				to={`delete/${article.id}`}
-						    	 		 				className="btn btn-sm btn-danger"
-						    	 		 			>
-						    	 		 				<FontAwesomeIcon icon={faTrash} />
-						    	 		 			</Link>
-						    	 		 		</div>
-						    	 			</td>
-						    	 		</tr>
-				    	 		 ))
-				    	 	  }
-				    	 	</tbody>
-			    	  </table>
-			    	</div>
-			    </div>
+		    	 		 ))
+		    	 	  }
+		    	 	</tbody>
+	    	  </table>
 			  </div>
 			</div>
 		</>

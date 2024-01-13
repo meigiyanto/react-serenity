@@ -30,4 +30,4 @@ const Layout = () => {
  );
 }
 
-export {Layout};
+export { Layout };
