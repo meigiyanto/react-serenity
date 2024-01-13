@@ -1,23 +1,26 @@
 import React, { useState /*, useContext*/ } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 // import { AuthContext } from '../../../context/authContext';
 import menu from './../../data/menu';
 
 function ListMenu({ path= null, name, children= null, onClick= null }) {
-	const [isClose, setIsClose] = useState(false);
-
 	return (
 		<>
 			{
 				!children ?
-				(<Link to={path}>{name}</Link>)
+				(<NavLink
+					to={path}
+					className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "" }
+					>{name}</NavLink>)
 				:
-				(<>
-					<Link to={path} onClick={onClick}>
-						<span>{name}</span>
-						<i className="bi bi-chevron-down"></i>
-					</Link>{children}
-				</>)
+				(<><NavLink
+					to={path}
+					onClick={onClick}
+					className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "" }
+					>
+						<span>{name}</span><i className="bi bi-chevron-down"></i>
+					</NavLink>{children}</>
+				)
 			}
 		</>
 	)
@@ -25,48 +28,61 @@ function ListMenu({ path= null, name, children= null, onClick= null }) {
 
 function Navbar() {
 	const [isShow, setIsShow] = useState(false);
+	const handleShow = (elm = null) => {
+		elm?.target.parentElement.classList.toggle('navbar-mobile');
+		elm?.target.classList.toggle('bi-x');
+		elm?.target.classList.toggle('bi-list');
+	}
   const [dropdown, setDropdown] = useState(false);
+  const handleDropdown = (elm = null) => {
+	  elm.target.children[1].classList.toggle('bi-chevron-right');
+    if(elm.target.parentElement) {
+			elm.target.parentElement.classList.toggle('dropdown');
+			elm.target.nextElementSibling.classList.toggle('dropdown-active');
+  	}
+  	setDropdown(!dropdown);
+  }
 	// const {currentUser, logout} = useContext(AuthContext);
 	// let isLoggedIn = false;
 
 	return (
-		<nav id="navbar" className={!isShow ? "navbar" : "navbar navbar-mobile"}>
+		<nav id="navbar" className="navbar">
 		{
-			isShow ? (<ul>
+			!isShow ? (<ul>
 				{
 					menu.map(m => (
-						<li key={m.id} className={m.children ? "dropdown" : null}>
+						<li	key={m.id}>
 							<ListMenu
 								name={m.name}
 								path={m.path}
-								onClick={() => setDropdown(!dropdown)}
+								onClick={handleDropdown}
 							>
 							{
-							 m.children && (<ul className={isShow ? "dropdown-active" : null}>
-							  {
-							   m.children.map(mc => (
-							   	<li key={mc.id} className={mc.children ? "dropdown" : null}>
-							   		<ListMenu
-							   			name={mc.name}
-							   			path={mc.path}
-							   			onClick={() => setDropdown(!dropdown)}
-							   		>
-							   		{
-							   			mc.children && (<ul className={!isShow ? "dropdown-active" : null}>
-							   			{
-							   			 mc.children.map(mcc => (
-							   			 	<li key={mcc.id}>
-							   			 		<ListMenu name={mcc.name} path={mcc.path} />
-							   			 	</li>
-							   			 ))
-							   			}
-							   			</ul>)
-							   		 }
-							   		 </ListMenu>
-							   	</li>
-							   ))
-							 	}
-							 </ul>)
+							 m.children && (<ul>
+							   {
+							  	 m.children.map(mc => (
+							  		 <li key={mc.id}>
+							  			 <ListMenu
+							  			 	name={mc.name}
+							  			 	path={mc.path}
+							  			 	onClick={handleDropdown}
+							  			 >
+							  			 {
+							  			  mc.children && (<ul>
+							  			  	{
+							  			  		mc.children.map(mcc => (
+								  			  		<li key={mcc.id}>
+									  			  		<ListMenu name={mcc.name} path={mcc.path} />
+									  			  	</li>
+							  			  		))
+							  			  	}
+							  			  </ul>)
+							  			 }
+							  			 </ListMenu>
+							  		 </li>
+							  	 ))
+							   }
+							  </ul>)
 							}
 							</ListMenu>
 						</li>
@@ -76,12 +92,7 @@ function Navbar() {
 		}
 
 
-		{	!isShow ?
-			(<i onClick={() => setIsShow(!isShow)} className="bi bi-list mobile-nav-toggle"></i>)
-			:
-			(<i onClick={() => setIsShow(!isShow)} className="bi mobile-nav-toggle bi-x"></i>)
-		}
-
+		{	!isShow && (<i onClick={handleShow} className="bi bi-list mobile-nav-toggle"></i>) }
 		</nav>
 	)
 }
@@ -92,11 +103,11 @@ const Header = () => {
 			<div className="container d-flex align-items-center justify-content-between">
 				<div className="logo">
 					<h1 className="text-light">
-						<NavLink to="/home">Serenity</NavLink>
+						<Link to="/home">Serenity</Link>
 					</h1>
-					{/*<Link to="/">
+					{/*<NavLink to="/">
 						<img src="../assets/img/logo.png" alt="" className="img-fluid" />
-					</Link>*/}
+					</NavLink>*/}
 				</div>
 				<Navbar />
 			</div>
@@ -105,71 +116,3 @@ const Header = () => {
 }
 
 export { Header };
-
-/*
-								m.children && (<ul
-									m.children.map(mc => (
-							 			<li key={mc.id} className={mc.children ? 'dropdown' : null}>
-							 				<ListMenu
-							 					name={mc.name}
-							 					path={mc.path}
-							 					onClick={(e) => { e.stopPropagation(); setDropdown(!dropdown) }}
-							 				>
-							 				{
-							 					isShow ? (<ul className={!dropdown ? null : "dropdown-active"}>
-							 					{
-							 						mc.children(mcc => (
-														<li key={mcc.id}>
-															<ListMenu name={mcc.name} path={mcc.path} />
-														</li>
-							 						))
-							 					}
-							 					</ul>) : (<></>)
-							 				}
-							 				</ListMenu>
-							 			</li>
-									))
-								</ul>)
-								
-
-			{
-				isShow ? (<ul>
-				{
-					menu.map(m => (
-
-								{
-									m.children && (<ul className={!dropdown ? null : "dropdown-active"}>
-									 	{
-									 		m.children.map(mc => (
-
-									 				{
-									 					mc.children && (<ul className={!dropdown ? null : "dropdown-active"}>
-									 					{
-									 						mc.children.map(mcc => (
-																
-									 						))
-									 					}
-									 					</ul>)
-									 				}
-									 				</ListMenu>
-									 			</li>
-									 		))
-									 	}
-									</ul>)
-								}
-							</ListMenu>
-						</li>
-					))
-				}
-				</ul>)
-				:
-				(<></>)
-			}
-*/
-
-
-/*
-							{
-
-							}
-*/

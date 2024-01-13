@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './style.css';
 import { Outlet as FrontendOutlet } from 'react-router-dom';
 import { Header } from '../../components/frontend/Header';
 import { Footer } from '../../components/frontend/Footer';

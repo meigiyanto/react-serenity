@@ -7,7 +7,7 @@ const menu = [
 	{
 		id: 2,
 		name: 'About',
-		path: '/about',
+		path: '#',
 		children: [
 			{
 		 		id: 8,
@@ -22,21 +22,21 @@ const menu = [
 			{
 		 		id: 10,
 				name: 'Other',
-				path: '/other',
+				path: '#',
 				children: [
 					{
 						id: 11,
- 						name: 'link 1',
+ 						name: 'Link 1',
 						path: '/link-1',
 					},
 					{
 						id: 12,
- 						name: 'link 2',
+ 						name: 'Link 2',
 						path: '/link-2',
 					},
 					{
 						id: 13,
- 						name: 'link 3',
+ 						name: 'Link 3',
 						path: '/link-3',
 					}
 				]
