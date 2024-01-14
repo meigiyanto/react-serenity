@@ -1,15 +1,21 @@
-import { Outlet } from 'react-router-dom';
-import {Header} from '../../components/frontend/Header';
-import {Footer} from '../../components/frontend/Footer';
+import React from 'react';
+import { Outlet as BackendOutlet } from 'react-router-dom';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Header } from '../../components/backend/Header';
+import { Sidebar } from '../../components/backend/Sidebar';
+import { Footer } from '../../components/backend/Footer';
 
 const Layout = () => {
 	return (
 		<>
-			<Header />
-			<Outlet />
-			<Footer />
+    	<Header />
+   		<Sidebar />
+   		<main className="main">
+				<BackendOutlet />
+			</main>
+    	<Footer />
 		</>
- );
+	);
 }
 
-export {Layout};
+export { Layout };

@@ -1,6 +1,9 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+	RouterProvider,
+	createBrowserRouter
+} from 'react-router-dom';
 import { Layout as FrontendLayout } from './layouts/frontend/Layout';
-// import { Layout as BackendLayout } from './layouts/backend/Layout';
+import { Layout as BackendLayout } from './layouts/backend/Layout';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,6 +17,16 @@ import PortfolioSingle from './pages/PortfolioSingle';
 import Team from './pages/Team';
 
 import NoMatch from './pages/NoMatch';
+
+import Dashboard from './pages/admin/Dashboard';
+import Posts from './pages/admin/posts/index';
+import { Single as SinglePost } from './pages/admin/posts/Single';
+import { Edit as EditPost } from './pages/admin/posts/Edit';
+import { Create as CreatePost } from './pages/admin/posts/Create';
+
+// import Categories from './pages/admin/Categories';
+// import Tags from './pages/admin/Tags';
+// import Pages from './pages/admin/Pages';
 
 const router = createBrowserRouter([
 	{
@@ -62,10 +75,32 @@ const router = createBrowserRouter([
 			}
 		],
 	},
-	/* {
-		path: '/dashboard',
-		element: <BackendLayout />
-	}, */
+	{
+		path: '/admin',
+		element: <BackendLayout />,
+		children: [
+			{
+				path: 'admin',
+				element: <Dashboard />
+			},
+			{
+				path: 'posts',
+				element: <Posts />
+			},
+			{
+				path: 'posts/create',
+				element: <CreatePost />
+			},
+			{
+				path: 'posts/detail/:id',
+				element: <SinglePost />
+			},
+			{
+				path: 'posts/edit/:id',
+				element: <EditPost />
+			}
+ 		]
+	},
 	{
 		path: '*',
 		element: <NoMatch />

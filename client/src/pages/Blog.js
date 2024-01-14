@@ -41,7 +41,7 @@ function Blog() {
 										  <article key={post.id} className="entry">
 								        <div className="entry-img">
 								          <img
-														src={`../assets/frontend/img/blog/${post.picture}`}
+														src={`${window.location.origin}/assets/img/blog/${post.picture}`}
 														alt={post.picture_description}
 														className="img-fluid"
 													/>

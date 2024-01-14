@@ -1,12 +1,13 @@
-import { useContext } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/authContext';
-import Welcome from "../../components/layouts/backend/Welcome";
+// import { AuthContext } from '../../context/authContext';
 
 const Dashboard = () => {
-	const {currentUser} = useContext(AuthContext);
+	// const {currentUser} = useContext(AuthContext);
   return (
-      <Welcome name={currentUser} />
+  	<div className="container-fluid">
+  		<h3>Hello</h3>
+  	</div>
   );
 };
 
