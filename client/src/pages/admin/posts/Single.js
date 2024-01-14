@@ -4,16 +4,17 @@ import { Link, useParams } from 'react-router-dom';
 import * as Icon from 'react-feather';
 
 const Single = () => {
-	const { article, setArticle } = useState({});
+	const [ article, setArticle ] = useState([]);
 	const { id }  = useParams();
 
   const fetchArticle = async () => {
   	const resp = await axios.get(`/posts/${id}`);
   	setArticle(resp.data);
   }
+
 	useEffect(() => {
 	  fetchArticle();
-	})
+	}, [id])
 
 	function createMarkup(val) {
 	  return {__html: val};
@@ -26,7 +27,7 @@ const Single = () => {
 				  <ol className="breadcrumb">
 				    <li className="breadcrumb-item"><Link to="/admin"><Icon.Home height={16}/> Home</Link></li>
  				    <li className="breadcrumb-item"><Link to="/admin/posts"><Icon.BookOpen height={16}/> Posts</Link></li>
-				    <li className="breadcrumb-item active" aria-current="page">Library</li>
+				    <li className="breadcrumb-item active" aria-current="page">Detail Post</li>
 				  </ol>
 				</nav>
 			</div>
@@ -46,6 +47,7 @@ const Single = () => {
 			    </div>
 			  </div>
 			</div>
+
 		</>
 	)
 }

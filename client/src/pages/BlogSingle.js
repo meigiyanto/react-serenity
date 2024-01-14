@@ -37,7 +37,7 @@ function BlogSingle() {
 							<article className="entry entry-single">
 							  <div className="entry-img">
 							    <img
-							    	src={`../assets/frontend/img/blog/${post.picture}`}
+							    	src={`${window.location.origin}/assets/img/blog/${post.picture}`}
 							    	alt={post.picture_description}
 							    	className="img-fluid"
 							    />
@@ -88,7 +88,7 @@ function BlogSingle() {
 
 							<div className="blog-author d-flex align-items-center">
 					      <img
-					      	src="../assets/img/blog/blog-author.jpg"
+					      	src={`${window.location.origin}/assets/img/blog/blog-author.jpg`}
 					      	className="rounded-circle float-left"
 					      	alt=""
 					      />
@@ -117,7 +117,7 @@ function BlogSingle() {
 										<div id="comment-1" className="comment">
 											<div className="d-flex">
 												<div className="comment-img">
-								  				<img src="../assets/img/blog/comments-1.jpg" alt="" />
+								  				<img src={`${window.location.origin}/assets/img/blog/comments-1.jpg`} alt="" />
 								  	 		</div>
 												<h5>Commentator</h5>
 												<time dateTime="2020-01-01"></time>

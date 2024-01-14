@@ -21,7 +21,8 @@ import NoMatch from './pages/NoMatch';
 import Dashboard from './pages/admin/Dashboard';
 import Posts from './pages/admin/posts/index';
 import { Single as SinglePost } from './pages/admin/posts/Single';
-// import Edit from './pages/admin/Posts/Edit';
+import { Edit as EditPost } from './pages/admin/posts/Edit';
+import { Create as CreatePost } from './pages/admin/posts/Create';
 
 // import Categories from './pages/admin/Categories';
 // import Tags from './pages/admin/Tags';
@@ -87,8 +88,16 @@ const router = createBrowserRouter([
 				element: <Posts />
 			},
 			{
+				path: 'posts/create',
+				element: <CreatePost />
+			},
+			{
 				path: 'posts/detail/:id',
 				element: <SinglePost />
+			},
+			{
+				path: 'posts/edit/:id',
+				element: <EditPost />
 			}
  		]
 	},
