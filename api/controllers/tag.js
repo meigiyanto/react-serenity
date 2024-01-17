@@ -1,4 +1,4 @@
-import { db } from "../db.js";
+import { db } from "../config/db.config.js";
 import jwt from "jsonwebtoken";
 
 export const getTags = (req, res) => {
